@@ -26,7 +26,11 @@ steps:
   displayName: 'Install dependencies'
 
 - script: |
-    pip install pytest pytest-azurepipelines
-    pip install -e 
-    pytest app/test.py
+    pip install pytest-django
+    pip install pytest && pytest app/test.py --doctest-modules --junitxml=junit/test-results.xml
   displayName: 'pytest'
+- task: PublishTestResults@2
+  displayName: Publish Test Results **/test-results.xml
+  inputs:
+    testResultsFiles: '**/test-results.xml'
+    testRunTitle: Python $(python.version)
