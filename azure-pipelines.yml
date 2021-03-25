@@ -17,10 +17,8 @@ steps:
 - task: UsePythonVersion@0
   inputs:
     versionSpec: '$(python.version)'
+    addToPath: false
   displayName: 'Use Python $(python.version)'
-  inputs:
-      versionSpec: $(python.version)
-      addToPath: false
 
 - script: |
     python -m pip install --upgrade pip
