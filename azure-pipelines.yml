@@ -25,6 +25,7 @@ steps:
   displayName: 'Install dependencies'
 
 - script: |
-    pip install pytest-django
-    pip install pytest && pytest app/test.py
+    pip install pytest pytest-azurepipelines
+    pip install -e 
+    pytest app/test.py
   displayName: 'pytest'
