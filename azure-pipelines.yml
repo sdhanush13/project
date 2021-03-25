@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: windows-2019
 strategy:
   matrix:
     Python37:
@@ -25,6 +25,6 @@ steps:
   displayName: 'Install dependencies'
 
 - script: |
-    pip install pytest pytest-azurepipelines
-    pytest app/test.py
+    pip install pytest-django
+    pip install pytest && pytest app/test.py
   displayName: 'pytest'
