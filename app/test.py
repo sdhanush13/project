@@ -11,4 +11,4 @@ def test_user_create():
 
 def test_greater_equal():
   num = 100
-  assert num > 10
+  assert num > 100
