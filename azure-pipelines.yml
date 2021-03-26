@@ -15,20 +15,6 @@ strategy:
 
 steps:
 - task: UsePythonVersion@0
-- task: ArchiveFiles@2
-  inputs:
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'Microsoft Azure(3ff065d4-f089-47b1-b1c0-e94335c3e96f)'
-    appType: 'webApp'
-    WebAppName: 'DemoService'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
-    rootFolderOrFile: '$(Build.BinariesDirectory)'
-    includeRootFolder: true
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    replaceExistingArchive: true
   inputs:
     versionSpec: '$(python.version)'
     addToPath: false
