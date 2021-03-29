@@ -25,7 +25,7 @@ SECRET_KEY = 'abswn*ibukj3q3f$vjjk%*5!!z01ehrt-^v*1@3769enzj!jm@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*','tonkabidemo.azurewebsites.net','127.0.0.1']
 
 
 # Application definition
