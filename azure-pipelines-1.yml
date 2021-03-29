@@ -47,8 +47,10 @@ stages:
       workingDirectory: $(projectRoot)
       displayName: "Install requirements"
     - script: |
+        source antenv/bin/activate
         pip install pytest-django
         pip install pytest && pytest app/test.py --doctest-modules --junitxml=junit/test-results.xml
+      workingDirectory: $(projectRoot)
       displayName: 'pytest'
 
     - task: ArchiveFiles@2
