@@ -46,6 +46,10 @@ stages:
         pip install -r requirements.txt
       workingDirectory: $(projectRoot)
       displayName: "Install requirements"
+    - script: |
+        pip install pytest-django
+        pip install pytest && pytest app/test.py --doctest-modules --junitxml=junit/test-results.xml
+      displayName: 'pytest'
 
     - task: ArchiveFiles@2
       displayName: 'Archive files'
@@ -59,6 +63,11 @@ stages:
     - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
       displayName: 'Upload package'
       artifact: drop
+    - task: PublishTestResults@2
+      displayName: Publish Test Results **/test-results.xml
+      inputs:
+        testResultsFiles: '**/test-results.xml'
+        testRunTitle: Python $(python.version)
 
 - stage: Deploy
   displayName: 'Deploy Web App'
