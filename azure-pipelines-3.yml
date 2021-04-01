@@ -14,10 +14,10 @@ variables:
   webAppName: 'tonkabidemo'
 
   # Agent VM image name
-  vmImageName: 'ubuntu-latest'
+  vmImageName: 'ubuntu-18.04'
 
   # Environment name
-  environmentName: 'tonkabidemo'
+  environmentName: 'LinuxVM'
 
   # Project root folder. Point to the folder containing manage.py file.
   projectRoot: $(System.DefaultWorkingDirectory)
@@ -67,7 +67,7 @@ stages:
   jobs:
   - deployment: DeploymentJob
     pool:
-      vmImage: $(vmImageName)
+      vmImage: '$(vmImageName)'
     environment: $(environmentName)
     strategy:
       runOnce:
